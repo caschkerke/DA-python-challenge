@@ -1,0 +1,6 @@
+Financial Analysis
+There are 86 total months in this dataset.
+The total amount of Profit/Losses over the entire period is: $38382578
+The average change in Profit/Losses over the entire period is: $-2315.12
+The Greatest Increase in Profits was: ($1926159.0)
+The Greatest Decrease in Profits was: ($-2196167.0)
