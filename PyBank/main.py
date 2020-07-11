@@ -1,7 +1,9 @@
 import pandas as pd
 import os
 
-file=r"\python-challenge\PyBank\Resources\budget_data.csv" #couldn't get relative paths to run appropriately in shell terminal (probably an issue with my virtual environment setup) so I had to use an absolute file path. sorry! :(
+
+file=r"\PyBank\Resources\budget_data.csv"
+txt_output=r"\PyBank\Results.txt"
 csv_path = os.getcwd()+file
 accounting = pd.read_csv(csv_path)
 
@@ -17,8 +19,8 @@ returnstatementnetpl = "The total amount of Profit/Losses over the entire period
 accounting['Shifted Profit/Losses'] = accounting['Profit/Losses'].shift(1)
 accounting['Monthly Difference'] = accounting['Profit/Losses'] - accounting['Shifted Profit/Losses']
 
-difference = round(accounting['Monthly Difference'].mean(),2) #didn't set the difference to an absolute value in order to accurately
-                                                     #represent a negative or positive change from previous months.
+difference = round(accounting['Monthly Difference'].mean(),2) 
+
 returnstatementdiff = 'The average change in Profit/Losses over the entire period is: ${}'.format(difference)
 
 max = round(accounting['Monthly Difference'].max(), 2)
@@ -45,4 +47,4 @@ results = {
 
 
 results_df = pd.DataFrame(data=results)
-results_df.to_csv(r'python-challenge/PyBank/Results.txt', sep=',', index=False)
+results_df.to_csv(os.getcwd()+txt_output, sep=',', index=False)
